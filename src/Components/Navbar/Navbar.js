@@ -7,12 +7,15 @@ import { useAuth } from "./../../context/AuthContext";
 
 const Navbar = () => {
   const history = useHistory();
-
+  const [home, setHome] = useState(true);
   const { currentUser } = useAuth();
+  const { logout } = useAuth();
   const scrollTo = (id) => {
-    if (history.location.pathname === "/coursedetails") {
-      history.push("/");
-    } else {
+    if (
+      history.location.pathname !== "/coursedetails" ||
+      history.location.pathname !== "/login" ||
+      history.location.pathname !== "/signup"
+    ) {
       if (id === "") {
         id = "home";
       }
@@ -63,7 +66,18 @@ const Navbar = () => {
       nav.classList.remove("show");
     }, 500);
   };
-
+  const navHide = () => {
+    console.log(window.location.pathname);
+    if (
+      history.location.pathname === "/coursedetails" ||
+      history.location.pathname === "/login" ||
+      history.location.pathname === "/signup"
+    ) {
+      setHome(false);
+    } else {
+      setHome(true);
+    }
+  };
   useEffect(() => {
     //setting late animation
     animation();
@@ -81,62 +95,103 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-mainbg fixed-top">
       <NavLink className="navbar-brand navbar-logo" to="/" exact>
-        AcuateBull
+        Levelup<span style={{ color: "#3f3d56" }}>Edu.</span>
       </NavLink>
+      {home ? (
+        <>
+          <button
+            className="navbar-toggler"
+            id="menu"
+            onClick={function () {
+              setTimeout(function () {
+                animation();
+              });
+            }}
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <RiMenu3Fill style={{ fontSize: "30px", color: "#53b8d7" }} />
+          </button>
 
-      <button
-        className="navbar-toggler"
-        id="menu"
-        onClick={function () {
-          setTimeout(function () {
-            animation();
-          });
-        }}
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <RiMenu3Fill style={{ fontSize: "30px", color: "#53b8d7" }} />
-      </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav ml-auto">
+              <div className="hori-selector">
+                <div className="left"></div>
+                <div className="right"></div>
+              </div>
 
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav ml-auto">
-          <div className="hori-selector">
-            <div className="left"></div>
-            <div className="right"></div>
+              <li className="nav-item active">
+                <NavLink
+                  className="nav-link"
+                  to="/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    history.push("/");
+                    animation();
+                  }}
+                  exact
+                >
+                  Home
+                </NavLink>
+              </li>
+
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/about" exact>
+                  About
+                </NavLink>
+              </li>
+
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/joinus" exact>
+                  Join Now
+                </NavLink>
+              </li>
+              {currentUser ? (
+                <>
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="/" exact>
+                      {currentUser.uid}
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink
+                      className="nav-link"
+                      to="/"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        logout();
+                      }}
+                      exact
+                    >
+                      Logout
+                    </NavLink>
+                  </li>
+                </>
+              ) : (
+                <li className="nav-item">
+                  <NavLink
+                    className="nav-link"
+                    to="/"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      history.push("/login");
+                    }}
+                    exact
+                  >
+                    Login
+                  </NavLink>
+                </li>
+              )}
+            </ul>
           </div>
-
-          <li className="nav-item active">
-            <NavLink className="nav-link" to="/" exact>
-              Home
-            </NavLink>
-          </li>
-
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/about" exact>
-              About
-            </NavLink>
-          </li>
-
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/joinus" exact>
-              Join Now
-            </NavLink>
-          </li>
-          {currentUser ? (
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/" exact>
-                {currentUser.uid}
-              </NavLink>
-            </li>
-          ) : (
-            <></>
-          )}
-        </ul>
-      </div>
+        </>
+      ) : (
+        <></>
+      )}
     </nav>
   );
 };
