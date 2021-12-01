@@ -19,7 +19,7 @@ const font = {
 const Whatsapp = () => {
   const openWhatsapp = () => {
     window.open(
-      "https://wa.me/+918943712843?text=I%20have%20a%20doubt%20on%20this"
+      "https://wa.me/918884983843?text=Hi,%20I%20would%20like%20to%20know%20more%20about%20LevelUp"
     );
   };
   return (

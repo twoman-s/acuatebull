@@ -13,6 +13,7 @@ export const createOrder = () => {
   };
   razorpay.orders.create(options, function (err, order) {
     if (order) {
+      console.log(order);
       return order.id;
     } else {
       console.log(err);

@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
 }
 
 html {
@@ -29,8 +29,13 @@ input[type="number"]::-webkit-outer-spin-button {
   appearance: none;
   margin: 0;
 }
-
-:root {
-  --primary: rgb(30, 126, 204);
-  --secondary: #53b8d7;
+p {
+  text-align: justify;
 }
+:root {
+  --primary: #26d7ab;
+  --secondary: #26d7ab;
+}
+/* 
+--primary: rgb(30, 126, 204);
+--secondary: rgb(83, 184, 215); */

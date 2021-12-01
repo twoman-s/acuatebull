@@ -1,21 +1,40 @@
 import { db } from "./../firebase";
 
 export const getData = async (id) => {
-  const query = db.collection("users").where("id", "==", id);
-
-  const observer = query.onSnapshot(
-    (querySnapshot) => {
-      console.log(querySnapshot.size);
-      if (querySnapshot.size >= 1) return true;
-      else return false;
-    },
-    (err) => {
-      return false;
-    }
-  );
+  const add = db.collection("users").doc(id);
+  const doc = await add.get();
+  let data = {};
+  if (!doc.exists) {
+    return data;
+  } else {
+    data = doc.data();
+    return data;
+  }
 };
 
 export const setData = async (data) => {
-  const res = await db.collection("users").doc(data.name).set(data);
+  const res = await db.collection("users").doc(data.id).set(data);
+  console.log(res);
+};
+
+export const setSubscriberData = async (data) => {
+  const res = await db.collection("subscribers").doc().set(data);
+  console.log(res);
+};
+
+export const getPaymentInfo = async (id) => {
+  const add = db.collection("payments").doc(id);
+  const doc = await add.get();
+  let data = {};
+  if (!doc.exists) {
+    return data;
+  } else {
+    data = doc.data();
+    return data;
+  }
+};
+
+export const setPaymentInfo = async (data) => {
+  const res = await db.collection("payments").doc(data.id).set(data);
   console.log(res);
 };

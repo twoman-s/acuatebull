@@ -1,13 +1,19 @@
 import styled from "styled-components";
 import bg from "./images/bg.png";
 import rbg from "./images/rbg.png";
-
+import medal from "./images/medal.svg";
 export const InfoSec = styled.div`
   color: #fff;
-  padding: 160px 0;
+  padding: 150px 0;
   background: ${({ primary }) =>
-    primary ? "url(" + rbg + ")" : "url(" + bg + ")"};
+    primary ? "url(" + bg + ")" : "url(" + rbg + ")"};
   background-repeat: no-repeat;
+  @media screen and (max-width: 768px) {
+    padding: 100px 0 0 0;
+    background: ${({ primary }) =>
+      primary ? "url(" + rbg + ")" : "url(" + bg + ")"};
+    background-repeat: no-repeat;
+  }
 `;
 
 export const InfoRow = styled.div`
@@ -16,6 +22,9 @@ export const InfoRow = styled.div`
   flex-wrap: wrap;
   align-items: center;
   flex-direction: ${({ imgStart }) => (imgStart ? "row-reverse" : "row")};
+  @media screen and (max-width: 768px) {
+    transform: scale(1) !important;
+  }
 `;
 
 export const InfoColumn = styled.div`
@@ -25,13 +34,16 @@ export const InfoColumn = styled.div`
   flex: 1;
   max-width: 50%;
   flex-basis: 50%;
+
   flex-wrap: wrap;
 
   @media screen and (max-width: 768px) {
     max-width: 100%;
     flex-basis: 100%;
     display: flex;
+    margin-bottom: 0;
     justify-content: center;
+    zoom: 1 !important;
   }
 `;
 
@@ -45,18 +57,40 @@ export const TextWrapper = styled.div`
   }
 `;
 export const TopLine = styled.div`
-  color: ${({ topPrimary }) => (topPrimary ? "#fff" : "#53b8d7")};
+  color: ${({ topPrimary }) => (topPrimary ? "#3f3d56" : "#53b8d7")};
+  border-bottom: 1px solid #3f3d56;
   font-size: 18px;
   line-height: 16px;
   letter-spacing: 1.4px;
   padding: 15px;
-  border-radius: 25px;
+  border-radius: 15px;
+  font-weight: bold;
   width: fit-content;
-  background: ${({ topPrimary }) =>
+  /* background: ${({ topPrimary }) =>
     topPrimary
       ? "linear-gradient(to right, var(--primary), var(--secondary))"
-      : "#fff"};
+      : "#fff"}; */
   margin-bottom: 16px;
+`;
+export const TopLinem = styled.div`
+  color: ${({ topPrimary }) => (topPrimary ? "#3f3d56" : "#53b8d7")};
+  border-bottom: 1px solid #3f3d56;
+  font-size: 18px;
+  line-height: 16px;
+  letter-spacing: 1.4px;
+  padding: 15px;
+  border-radius: 15px;
+  font-weight: bold;
+  width: fit-content !important;
+  /* background: ${({ topPrimary }) =>
+    topPrimary
+      ? "linear-gradient(to right, var(--primary), var(--secondary))"
+      : "#fff"}; */
+  margin-bottom: 16px;
+  @media screen and (max-width: 768px) {
+    width: 100% !important;
+    text-align: center;
+  }
 `;
 export const Heading = styled.h1`
   margin-bottom: 24px;
@@ -64,6 +98,10 @@ export const Heading = styled.h1`
   line-height: 1.1;
   color: ${({ lightHeading }) => (lightHeading ? "#3f3d56" : "#fff")};
   font-weight: 900;
+  @media screen and (max-width: 768px) {
+    text-align: center;
+    font-size: 2rem;
+  }
 `;
 export const SubTitle = styled.p`
   max-width: 440px;
@@ -71,6 +109,9 @@ export const SubTitle = styled.p`
   font-size: 18px;
   line-height: 24px;
   color: ${({ lightSub }) => (lightSub ? "#3f3d56" : "#fff")};
+  @media screen and (max-width: 768px) {
+    text-align: center;
+  }
 `;
 export const ImgWrapper = styled.div`
   max-width: 555px;
@@ -89,17 +130,27 @@ export const Img = styled.img`
 export const List = styled.ul`
   /* list-style: none; */
   padding: 0;
+  list-style-image: ${({ listStyle }) =>
+    listStyle ? "url(" + medal + ")" : "none"};
+  list-style-position: ${({ listStyle }) => (listStyle ? "inside" : "none")};
+  text-indent: -30px;
+  margin-left: 20px;
+  @media screen and (max-width: 768px) {
+    text-indent: -25px;
+    margin-left: 20px;
+  }
 `;
 export const ListItem = styled.li({
   position: "relative",
   color: "#3f3d56",
-  display: "table",
-  fontSize: "24px",
+  // display: "table",
+  fontSize: "22px",
   margin: "20px 0",
   // border: "1px solid #fff",
   borderRadius: "25px",
   padding: "15px",
   transition: "background 1s ease",
+  display: "list-item",
   // ":hover": {
   //   background: "#fff",
   //   color: "#53b8d7",

@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "acuatebull"
+  },
+  "targets": {
+    "acuatebull": {
+      "hosting": {
+        "levelup": [
+          "acuatebull"
+        ]
+      }
+    }
   }
 }

@@ -1,4 +1,4 @@
-import img1 from "./images/standout.svg";
+import img1 from "./images/imgh.jpg";
 import img2 from "./images/learning.webp";
 import img3 from "./images/earn.json";
 import stepi1 from "./images/step1.json";
@@ -11,11 +11,11 @@ export const infoOne = {
   primary: false,
   imgStart: false,
   topPrimary: true,
-  topLine: "Lets Start Trading",
-  heading: "Learn Stock Trading with Ease",
+  topLine: "Lets learn trading",
+  heading: "Learn Stock Trading Simply",
   lightHeading: true,
   subtitle:
-    "We provide simplified and affordabl courses. Easy to learn and understand. Be the best",
+    "Learn stock trading from India's best traders in your comfortable language",
   lightSub: true,
   img: img1,
   alt: "img",
@@ -26,6 +26,7 @@ export const infoOne = {
   btnText: "Join Now",
   btnPrimary: true,
   to: "joinus",
+  rs: "@just 1999/-",
 };
 
 export const infoTwo = {
@@ -43,13 +44,14 @@ export const infoTwo = {
   alt: "img",
   start: false,
   lottie: false,
-  aos: "slide-right",
+  aos: "",
   list: true,
   pricing: false,
-
+  linem: true,
   listItems: [
-    "Best Effective and Simplest learning methods available in you language.",
-    "India's first platform that provids efficient trading course at the lowest price.",
+    "Best effective back tested and simplified learning methods available in your language.",
+    "India's first platform that provides efficient trading courses at this much affordable price.",
+    "Sessions conducted by 5 year experienced traders.",
   ],
 };
 
@@ -58,7 +60,7 @@ export const infoThree = {
   primary: false,
   imgStart: false,
   topPrimary: false,
-  topLine: "#Lets Earn Together",
+  topLine: "#LetslearTogether",
   heading: "Earn with Us!!",
   lightHeading: false,
   subtitle:
@@ -68,13 +70,14 @@ export const infoThree = {
   alt: "img",
   start: true,
   lottie: true,
-  aos: "slide-left",
+  aos: "",
   list: true,
+  linem: true,
   listItems: [
     "India's best affordable trading school",
     "Master in Technical analysis",
     "Made for Common people",
-    "Learn from scratch to advance",
+    "Learn from scratch to advanced",
     "Available in your comfortable language",
   ],
 };
@@ -87,18 +90,19 @@ export const infoFour = {
   topLine: "Join Now",
   heading: "Master in Technical Ananlysis & Trading",
   lightHeading: true,
-  subtitle: "Become a Profitable Trader by spending cost of a shoe.",
+  subtitle: "Trading made simple.",
   lightSub: true,
   img: img3,
   alt: "img",
   start: true,
   lottie: true,
-  aos: "slide-right",
+  aos: "",
   list: false,
+  linem: true,
   listItems: [
     "Learn from scratch to advanced",
     "Attend classes on your comfortable time",
-    "9-5 Mon-Fri",
+    "9AM-5PM Monday-Friday",
   ],
   pricing: true,
   btnText: "Buy the course",
@@ -137,7 +141,7 @@ export const step2 = {
   heading: "Learn with video sessions from mentors",
   lightHeading: true,
   subtitle:
-    "Attend our simplified effective video courses in your comfortable language. For doubt clearing our support care is available from 9am-5pm, Monday-Friday",
+    "Attend our simplified effective video courses in your comfortable language. For doubt clearing our support center is available from 9am to 5pm, Monday-Friday.",
   lightSub: true,
   img: stepi2,
   alt: "img",
@@ -159,7 +163,7 @@ export const step3 = {
   heading: "Trade with Experts",
   lightHeading: true,
   subtitle:
-    "Trade with our experts and know how to apply the knowledge in marketing when you are ready with theorotical knowledge. You can trade with less amount of capital with the assistance of expert traders",
+    "Trade with the help of our expert traders and learn how to apply the knowledge in market. When you are ready with theorotical knowledge you can start trading with less amount of capital.",
   lightSub: true,
   img: stepi3,
   alt: "img",
@@ -181,7 +185,7 @@ export const step4 = {
   heading: "Limit your Loss & earn consistent Profit",
   lightHeading: true,
   subtitle:
-    "Once you start to earn profit consistently and limiting your losses, you can increase your capital and make more profit",
+    "Once you start to earn profit consistently and limiting your losses, you can increase your capital and make more profit.",
   lightSub: true,
   img: stepi4,
   alt: "img",

@@ -11,16 +11,22 @@ export const AccordionSection = styled.div`
 
 export const InfoSec = styled.div`
   color: #fff;
+  display: flex;
+  justify-content: center;
   padding: 160px 0;
   overflow: hidden;
   background: ${({ primary }) =>
     primary
       ? "linear-gradient(to right, rgba(30, 126, 204,0.5),  rgb(83, 184, 215,0.5))"
       : "#fff"};
+  @media screen and (max-width: 768px) {
+    padding: 160px 25px;
+  }
 `;
 
 export const InfoRow = styled.div`
   display: flex;
+  max-width: 1000px;
   margin: 0 -15px -15px -15px;
   flex-wrap: wrap;
   align-items: center;
@@ -32,8 +38,8 @@ export const InfoColumn = styled.div`
   padding-right: 15px;
   padding-left: 15px;
   flex: 1;
-  max-width: 50%;
-  flex-basis: 50%;
+  max-width: 1000px;
+  flex-basis: 100%;
   flex-wrap: wrap;
 
   @media screen and (max-width: 768px) {
@@ -73,6 +79,7 @@ export const Heading = styled.h1`
   line-height: 1.1;
   color: ${({ lightHeading }) => (lightHeading ? "#3f3d56" : "#fff")};
   font-weight: 900;
+  text-align: center;
 `;
 export const SubTitle = styled.p`
   max-width: 440px;

@@ -4,7 +4,7 @@ import { NavLink, useHistory } from "react-router-dom";
 import $ from "jquery";
 import { RiMenu3Fill } from "react-icons/ri";
 import { useAuth } from "./../../context/AuthContext";
-
+import { ButtonS } from "../Button";
 const Navbar = () => {
   const history = useHistory();
   const [home, setHome] = useState(true);
@@ -97,6 +97,7 @@ const Navbar = () => {
       <NavLink className="navbar-brand navbar-logo" to="/" exact>
         Levelup<span style={{ color: "#3f3d56" }}>Edu.</span>
       </NavLink>
+      <ButtonS btnPrimary={true}>Join Now</ButtonS>
       {home ? (
         <>
           <button

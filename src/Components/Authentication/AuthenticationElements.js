@@ -7,6 +7,7 @@ export const FormWrapper = styled.div`
   height: 100vh;
   padding: 0 20px;
   /* margin-top: 80px; */
+  color: #3f3d56;
 `;
 export const Form = styled.form`
   width: 100%;
@@ -40,7 +41,10 @@ export const TextArea = styled.textarea`
   outline: none;
 `;
 export const FieldSet = styled.fieldset``;
-export const Error = styled.div``;
+export const Error = styled.div`
+  color: red;
+  font-size: 15px;
+`;
 export const Submit = styled.input.attrs({
   type: "submit",
 })`
@@ -74,4 +78,14 @@ export const Submit = styled.input.attrs({
   }
   border: 1px solid
     ${({ btnPrimary }) => (btnPrimary ? "var(--secondary)" : "#fff")};
+`;
+
+export const Loader = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
 `;
