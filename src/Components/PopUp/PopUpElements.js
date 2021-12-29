@@ -12,7 +12,7 @@ export const Loader = styled.div`
 
 export const PopupWrapper = styled.div`
   width: ${({ form }) => (form ? "450px" : "600px")};
-  height: ${({ form }) => (form ? "330px" : "400px")};
+  height: ${({ form }) => (form ? "370px" : "400px")};
   color: #3f3d56;
   background: white;
   position: relative;

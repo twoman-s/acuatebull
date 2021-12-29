@@ -51,15 +51,14 @@ const instyle = {
   outline: "none",
 };
 
-export const PopUpForm = () => {
-  const history = useHistory();
+export const PopUpForm = ({ coupon }) => {
   const [name, setName] = useState();
   const [mobile, setMobile] = useState();
   return (
     <Loader id="popupform">
       <PopupWrapper form={true}>
         <br />
-        <h3>Want Free Consultation?</h3>
+        <h3>Get a free consultation now</h3>
         <br />
         <input
           style={instyle}
@@ -68,6 +67,7 @@ export const PopUpForm = () => {
           onChange={(e) => {
             setName(e.target.value);
           }}
+          required
         />
         <br />
         <br />
@@ -78,18 +78,23 @@ export const PopUpForm = () => {
           onChange={(e) => {
             setMobile(e.target.value);
           }}
+          required
         />
         <br />
         <button
           onClick={() => {
             let popup = document.getElementById("popupform");
-            popup.style.display = "none";
+
             let data = {
               name: name,
               number: mobile,
               date: new Date().toString(),
             };
-            setSubscriberData(data);
+            if (name && mobile) {
+              popup.style.display = "none";
+              setSubscriberData(data);
+              document.cookie = "subscribed=true";
+            }
           }}
         >
           Submit

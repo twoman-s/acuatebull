@@ -43,7 +43,7 @@ export const NavLinks = styled.div`
 export const LinkB = styled.h1`
   font-size: 15px;
   margin: 10px 10px;
-  padding: 13px;
+  padding: 10px;
   background: linear-gradient(to right, var(--primary), var(--secondary));
   border: 1px solid var(--secondary);
   cursor: pointer;
@@ -51,6 +51,8 @@ export const LinkB = styled.h1`
   color: #fff;
   transition: 0.5s;
   border: 1px solid #fff;
+  width: 100px;
+  text-align: center;
 
   &:hover {
     border: 1px solid var(--primary);

@@ -43,7 +43,6 @@ const CourseDetails = () => {
     return new Promise((resolve) => {
       const script = document.createElement("script");
       script.src = link;
-
       script.onload = () => {
         resolve(true);
       };
@@ -62,14 +61,20 @@ const CourseDetails = () => {
       alert("Somthing went wrong with Razorpay");
       return;
     }
+    let couponcode = false;
+    if (userAddress.couponcode === "LEVELUP5OFF") {
+      couponcode = true;
+    }
     const data = await fetch(API_URL + "payment", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ id: currentUser.uid }),
+      body: JSON.stringify({ id: currentUser.uid, couponcode: couponcode }),
     }).then((t) => t.json());
     console.log(data);
+    console.log(userAddress);
+
     const options = {
       key: data.key_id,
       amount: data.amount.toString(),

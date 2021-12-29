@@ -88,7 +88,10 @@ const InfoSection = ({
                     {listItems.map((item, index) => (
                       <>
                         <ListItem listStyle={true} key={index}>
-                          {/* <GiMedal /> */}
+                          <img
+                            style={{ width: "80px", height: "100px" }}
+                            src={medal}
+                          />
                           {item}
                         </ListItem>
                       </>

@@ -32,14 +32,21 @@ const AddressForm = () => {
       pincode: pinRef.current.value,
       date: new Date().toString(),
     };
-    setData(data);
-    if (location.state.from === "/coursedetails")
-      history.push({
-        pathname: "/coursedetails",
-        state: {
-          from: window.location.pathname,
-        },
-      });
+    if (
+      nameRef.current.value !== "" &&
+      mobileRef.current.value !== "" &&
+      addressRef.current.value !== "" &&
+      pinRef.current.value !== ""
+    ) {
+      setData(data);
+      if (location.state.from === "/coursedetails")
+        history.push({
+          pathname: "/coursedetails",
+          state: {
+            from: window.location.pathname,
+          },
+        });
+    }
   };
   useEffect(() => {
     window.scroll(0, 0);

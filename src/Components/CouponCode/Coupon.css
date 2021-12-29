@@ -1,0 +1,35 @@
+.couponcode {
+  position: fixed;
+  bottom: 80px;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(350px, 0);
+}
+.couponcode a {
+  color: #fff;
+  text-align: left;
+  padding: 15px;
+  font-size: 20px;
+  font-weight: 900;
+  border-radius: 50px;
+  width: 400px;
+  background-color: rgba(63, 61, 86, 0.7);
+  display: flex;
+  transition: 1s;
+}
+.couponcode a svg {
+  font-size: 30px;
+  font-weight: 900;
+  margin-right: 15px;
+}
+.couponcode a span {
+  margin-right: 15px;
+}
+.couponcode a:hover {
+  transform: translate(-200px, 0);
+}
+.couponcode a svg.active {
+  color: #26d7ab;
+}

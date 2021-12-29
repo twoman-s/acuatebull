@@ -69,7 +69,7 @@ const Home = () => {
         popform.style.display = "block";
         document.cookie = "popupform=true";
       }
-    }, 10000);
+    }, 17000);
   }, []);
   return (
     <>

@@ -6,7 +6,7 @@ export const FormWrapper = styled.div`
   align-items: center;
   height: 100vh;
   padding: 0 20px;
-  margin-top: 30px;
+  margin-top: 60px;
 `;
 export const Form = styled.form`
   width: 100%;

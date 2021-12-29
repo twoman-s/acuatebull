@@ -19,12 +19,10 @@ import TermsConditions from "./Components/TermsConditions";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
 import ForgotPassword from "./Components/Authentication/ForgotPassword";
 import { PopUpForm } from "./Components/PopUp";
+import RefundPolicy from "./Components/RefundPolicy";
+import Disclaimer from "./Components/Disclaimer";
 
 function App() {
-  // const [loader, setLoader] = useState(true);
-  // useEffect(() => {
-
-  // }, []);
   return (
     <AuthProvider>
       <Router>
@@ -44,6 +42,8 @@ function App() {
               exact
             />
             <Route path="/privacypolicy" component={PrivacyPolicy} exact />
+            <Route path="/disclaimer" component={Disclaimer} exact />
+            <Route path="/refundpolicy" component={RefundPolicy} exact />
             <Route path="/" component={Home} />
             <Route render={() => <Redirect to="/" />} />
           </Switch>

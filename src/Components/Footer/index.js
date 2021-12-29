@@ -77,6 +77,20 @@ const Footer = () => {
             >
               Terms & Conditions
             </li>
+            <li
+              onClick={() => {
+                history.push("/disclaimer");
+              }}
+            >
+              Disclaimer
+            </li>
+            <li
+              onClick={() => {
+                history.push("/refundpolicy");
+              }}
+            >
+              Refund Policy
+            </li>
           </ul>
         </FooterMid>
         <FooterEnd>

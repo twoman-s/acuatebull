@@ -133,11 +133,11 @@ export const List = styled.ul`
   list-style-image: ${({ listStyle }) =>
     listStyle ? "url(" + medal + ")" : "none"};
   list-style-position: ${({ listStyle }) => (listStyle ? "inside" : "none")};
-  text-indent: -30px;
-  margin-left: 20px;
+  /* text-indent: -25px; */
+  /* margin-left: 20px; */
   @media screen and (max-width: 768px) {
-    text-indent: -25px;
-    margin-left: 20px;
+    /* text-indent: -25px;
+    margin-left: 20px; */
   }
 `;
 export const ListItem = styled.li({
@@ -150,13 +150,17 @@ export const ListItem = styled.li({
   borderRadius: "25px",
   padding: "15px",
   transition: "background 1s ease",
-  display: "list-item",
+  display: "flex",
+  alignItems: "center",
   // ":hover": {
   //   background: "#fff",
   //   color: "#53b8d7",
   // },
   "@media screen and (max-width: 768px)": {
     fontSize: "18px",
+    width: "110%",
+    margin: "0",
+    marginLeft: "-20px",
   },
 
   // paddingLeft: "34px",
