@@ -128,7 +128,7 @@ const CourseDetails = () => {
         });
         return;
       }
-      displayRazorpay();
+      window.open("https://www.cashfree.com/product/12173")
     } else {
       history.push({
         pathname: "/login",
