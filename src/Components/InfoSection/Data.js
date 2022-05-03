@@ -26,7 +26,7 @@ export const infoOne = {
   btnText: "Join Now",
   btnPrimary: true,
   to: "joinus",
-  rs: "@just 1999/-",
+  rs: "@just 2499/-",
 };
 
 export const infoTwo = {

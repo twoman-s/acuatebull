@@ -25,7 +25,7 @@ const Card = () => {
         </ul>
         <div className="product-bottom-details">
           <div className="product-price">
-            <small>Rs3999/-</small>Rs1999/-
+            <small>Rs3999/-</small>Rs2499/-
           </div>
         </div>
       </div>

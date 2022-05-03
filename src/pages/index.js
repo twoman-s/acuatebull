@@ -14,7 +14,7 @@ import {
 // import StepSection from "../Components/StepsSection";
 import styled from "styled-components";
 import Whatsapp from "../Components/whatsapp";
-import logo from "../animations/levelup2.svg";
+import logo from "../animations/levelup.svg";
 // import Contact from "../Components/Contact";
 // import Serv from "../Components/Serv";
 
@@ -35,7 +35,7 @@ const Heading = styled.h1`
 export const Loader = styled.div`
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
+  background: #fff;
   position: fixed;
   top: 0;
   left: 0;
