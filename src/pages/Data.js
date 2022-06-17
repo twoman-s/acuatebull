@@ -10,7 +10,7 @@ export const coursedetails = {
     "Pattern Identification",
     "Risk Management",
   ],
-  price: "Rs.1999/- ",
+  price: "Rs.2499/- ",
   features: [
     "Anytime access of the course from anywhere in the world.",
     "Our trainers are not just trainers they all are Profitable Traders.",
