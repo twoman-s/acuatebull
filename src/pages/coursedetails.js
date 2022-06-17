@@ -22,14 +22,18 @@ import { getData, getPaymentInfo } from "./../context/firestoreContext";
 import { useHistory, useLocation } from "react-router-dom";
 import PopUp from "../Components/PopUp";
 import logo from "../animations/levelup.jpg";
+const sdk = require("api")("@cashfreedocs-new/v2#ebj9bj1sl1asf5c6");
 
 let API_URL = "";
+let API_VERSION = "2022-01-01";
+const X_CLIENT_ID = "132679bf1b93f2e3dab7ba8f0a976231";
+const X_SECRET_ID = "f46f2b3705f828472758379cd4f4721713919648";
 
 const CourseDetails = () => {
   if (window.location.hostname === "levelupedu.co.in") {
-    API_URL = "https://razorpaymentbackend.herokuapp.com/";
+    API_URL = "https://api.cashfree.com/pg";
   } else if (window.location.hostname === "localhost") {
-    API_URL = "https://razorpaymentbackend.herokuapp.com/";
+    API_URL = "https://sandbox.cashfree.com/pg";
   }
   const [address, setAddress] = useState(false);
   let location = useLocation();
@@ -38,87 +42,14 @@ const CourseDetails = () => {
   const [loading, setLoading] = useState(false);
   const { currentUser } = useAuth();
   const history = useHistory();
-
-  function loadRazorpay(link) {
-    return new Promise((resolve) => {
-      const script = document.createElement("script");
-      script.src = link;
-      script.onload = () => {
-        resolve(true);
-      };
-      script.onerror = () => {
-        resolve(false);
-      };
-      document.body.appendChild(script);
-    });
-  }
-  async function displayRazorpay() {
-    setLoading(true);
-    const res = await loadRazorpay(
-      "https://checkout.razorpay.com/v1/checkout.js"
-    );
-    if (!res) {
-      alert("Somthing went wrong with Razorpay");
-      return;
-    }
-    let couponcode = false;
-    if (userAddress.couponcode === "LEVELUP5OFF") {
-      couponcode = true;
-    }
-    const data = await fetch(API_URL + "payment", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ id: currentUser.uid, couponcode: couponcode }),
-    }).then((t) => t.json());
-    console.log(data);
-    console.log(userAddress);
-
-    const options = {
-      key: data.key_id,
-      amount: data.amount.toString(),
-      currency: data.currency,
-      name: "Levelup",
-      description: "Master in Technical Analysis & Trading course fee",
-      image: logo,
-      order_id: data.id,
-      handler: function (response) {
-        // alert(response.razorpay_payment_id);
-        // alert(response.razorpay_order_id);
-        // alert(response.razorpay_signature);
-        setLoading(false);
-        let popup = document.getElementById("popup");
-        popup.style.display = "block";
-        var data = {
-          id: currentUser.uid,
-          name: userAddress.name,
-          order_id: response.razorpay_order_id,
-          // amount: data.amount.toString(),
-        };
-        console.log(data);
-        // history.push("/profile");
-      },
-      prefill: {
-        email: currentUser.email,
-        contact: "+91" + userAddress.mobile,
-      },
-      notes: {
-        address: "LevelUp",
-      },
-      theme: {
-        color: "#26d7ab",
-      },
-    };
-    var paymentObject = new window.Razorpay(options);
-    paymentObject.open();
-    setLoading(false);
-  }
+  const createOrder = () => {
+    console.log(sdk);
+  };
 
   function buyNow(e) {
     e.preventDefault();
-
     if (currentUser) {
+      console.log(currentUser);
       if (!address) {
         history.push({
           pathname: "/address",
@@ -128,7 +59,8 @@ const CourseDetails = () => {
         });
         return;
       }
-      displayRazorpay();
+      createOrder();
+      // window.open("https://www.cashfree.com/product/12173");
     } else {
       history.push({
         pathname: "/login",
