@@ -59,12 +59,9 @@ const CourseDetails = () => {
         });
         return;
       }
-<<<<<<< HEAD
-      createOrder();
+      // createOrder();
       // window.open("https://www.cashfree.com/product/12173");
-=======
       window.open("https://www.cashfree.com/product/12173")
->>>>>>> ce81b3c3cc290be51692ba45a2e22ef5d198ba42
     } else {
       history.push({
         pathname: "/login",
